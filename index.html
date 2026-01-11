@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Sayang 💖</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Background layers -->
+  <div class="stars"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <!-- Confetti layer -->
+  <div class="confettiLayer" id="confettiLayer" aria-hidden="true"></div>
+
+  <main class="wrap">
+    <header class="topbar reveal">
+      <div class="badge">
+        <span class="dot"></span>
+        <div>
+          <div class="badgeTitle">12 Januari 2026</div>
+          <div class="badgeSub">Hari spesial yang Sayang pantas dapet 100x lipat bahagia</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="btnMusic" class="btn">
+          <span class="ic">🎵</span> <span id="musicText">Music</span>
+        </button>
+        <button id="btnHearts" class="btn btn-primary">
+          <span class="ic">💖</span> Love
+        </button>
+      </div>
+    </header>
+
+    <section class="hero reveal" id="hero">
+      <div class="heroGrid">
+        <div class="heroText">
+          <h1 class="title">
+            Happy Birthday, <span class="accent">Sayang</span> 💝
+          </h1>
+
+          <p class="subtitle">
+            Hari ini mpit cuma mau bilang: Sayang itu rumah, Sayang itu semangat, Sayang itu alasan mpit mau jadi versi terbaik.
+            Semoga tahun ini Sayang makin bahagia, sehat, dan semua yang Sayang pengenin pelan-pelan jadi nyata. ✨
+          </p>
+
+          <div class="pillRow">
+            <div class="pill">🎂 Wish terkabul satu satu</div>
+            <div class="pill">🌷 Hati tetap lembut</div>
+            <div class="pill">🌙 Tidur lebih nyenyak</div>
+            <div class="pill">🧸 Less overthinking</div>
+          </div>
+
+          <div class="heroBtns">
+            <button class="btn btn-primary" id="btnScrollLetter">💌 Buka surat</button>
+            <button class="btn" id="btnCompliment">✨ Random manis</button>
+          </div>
+          <div class="hint" id="complimentText"></div>
+        </div>
+
+        <div class="photoCard tilt" id="tiltCard">
+          <div class="shine"></div>
+          <img src="assets/photo1.jpeg" alt="Foto Sayang"
+               onerror="this.src='https://images.unsplash.com/photo-1520975958225-1a1b65a8d8a1?auto=format&fit=crop&w=1200&q=80'">
+          <div class="photoOverlay"></div>
+          <div class="photoCaption">
+            <div class="capTitle">Untuk Sayang yang paling cantik 💗</div>
+            <div class="capSub">12 Januari 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid2">
+      <article class="card reveal">
+        <h2>⏳ Countdown</h2>
+        <p class="muted">Menuju ulang tahun Sayang...</p>
+
+        <div class="countdown" id="countdown">
+          <div class="cdItem">
+            <div class="cdNum" id="cdDays">00</div>
+            <div class="cdLbl">Hari</div>
+          </div>
+          <div class="cdSep">:</div>
+          <div class="cdItem">
+            <div class="cdNum" id="cdHours">00</div>
+            <div class="cdLbl">Jam</div>
+          </div>
+          <div class="cdSep">:</div>
+          <div class="cdItem">
+            <div class="cdNum" id="cdMins">00</div>
+            <div class="cdLbl">Menit</div>
+          </div>
+          <div class="cdSep">:</div>
+          <div class="cdItem">
+            <div class="cdNum" id="cdSecs">00</div>
+            <div class="cdLbl">Detik</div>
+          </div>
+        </div>
+
+        <div class="small" id="countdownNote"></div>
+      </article>
+
+      <article class="card reveal">
+        <h2>🗓️ Mini timeline</h2>
+        <p id="daysCounter">Menghitung hari bareng kita...</p>
+        <p class="small">Dari 23 Maret 2023 sampai hari ini, always you. 🤍</p>
+      </article>
+
+      <article class="card reveal full">
+        <h2>📸 Galeri momen</h2>
+        <!-- <p class="muted">Klik foto biar kebuka gede. Biar dramatis, secukupnya.</p> -->
+
+        <div class="gallery" id="gallery">
+          <button class="thumb"><img src="assets/photo2.jpeg" alt="1"></button>
+          <button class="thumb"><img src="assets/photo3.jpeg" alt="2"></button>
+          <button class="thumb"><img src="assets/photo4.jpeg" alt="3"></button>
+          <button class="thumb"><img src="assets/photo5.jpeg" alt="4"></button>
+        </div>
+      </article>
+
+      <article class="card reveal full" id="letter">
+        <h2>💌 Surat buat Sayang</h2>
+        <!-- <p class="muted">Ini yang bikin web Sayang bukan sekadar “bagus”, tapi kerasa “niat”.</p> -->
+
+        <!-- Typed output (yang ditampilin) -->
+        <div class="typedBox" id="typedBox" aria-live="polite"></div>
+
+        <!-- Source text (nggak ditampilin, tapi tetap ada buat edit + copy) -->
+        <details class="editBox">
+          <summary>Edit surat</summary>
+          <textarea id="letterSource">Sayang,
+
+Selamat ulang tahun yaa Sayang 🤍
+Timaaciii udah jadi orang sebaik dan sesabar ini buat mpit. makasih udah nemenin mpit di banyak hal, di kondisi capek, seneng, sampe kesel sekalipun. mpit bersyukur banget bisa punya Sayang di hidup mpit.
+
+semoga di umur Sayang yang baru ini, Sayang selalu sehat, bahagia, dan semua yang Sayang pengenin pelan-pelan bisa tercapai. inget ya, apa pun yang terjadi, mpit selalu ada buat Sayang. mpit Sayang banget sama Sayang 🤍
+
+- mpit</textarea>
+        </details>
+
+        <div class="row">
+          <button class="btn btn-primary" id="btnReplayTyping">⌨️ Replay typing</button>
+          <button class="btn" id="btnCopy">📋 Copy surat</button>
+          <button class="btn" id="btnDownload">⬇️ Download surat</button>
+        </div>
+        <div class="hint" id="copyHint"></div>
+      </article>
+    </section>
+
+    <footer class="footer reveal">Made with love, effort, dan cihuyy 💗</footer>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalInner">
+      <button class="close" id="closeModal">Tutup ✕</button>
+      <img class="modalImg" id="modalImg" alt="preview">
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
